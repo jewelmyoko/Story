@@ -1,0 +1,15 @@
+
+options:
+  pubsubTopic: projects/planar-sunrise-455607-r1/topics/Test-topic
+
+steps:
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        echo "Cloud Build triggered by Pub/Sub message."
+        echo "Pub/Sub Topic: projects/ProjectA/topics/CustomTopic"
+        echo "Substitution Variables:"
+        env | grep ^_ || echo "No substitution vars."
+
